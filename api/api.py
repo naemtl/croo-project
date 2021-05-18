@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -17,9 +17,19 @@ class Comment(db.Model):
         return f"{self.id} {self.content} {self.datetime} {self.email} {self.name}"
 
 
+def comment_serializer(comment):
+    return {
+        "id": comment.id,
+        "content": comment.content,
+        "datetime": comment.datetime,
+        "email": comment.email,
+        "name": comment.name,
+    }
+
+
 @app.route("/api", methods=["GET"])
 def index():
-    return {"name": "We're live!"}
+    return jsonify([*map(comment_serializer, Comment.query.all())])
 
 
 if __name__ == "__main__":

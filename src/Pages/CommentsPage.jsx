@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Card from "../Components/Card";
+import CommentCard from "../Components/CommentCard";
 
 const CommentsPage = () => {
 
-    const [comment, setComment] = useState([])
+    const [comments, setComments] = useState([])
 
     useEffect(() => {
         try {
@@ -11,7 +11,7 @@ const CommentsPage = () => {
                 if (response.ok) {
                     return response.json()
                 }
-            }).then(data => console.log(data))
+            }).then(data => setComments(data))
         } catch (error) {
             console.error(error)
         }
@@ -20,7 +20,7 @@ const CommentsPage = () => {
 
     return (
         <div>
-            <Card />
+            {comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
         </div>
     )
 }
