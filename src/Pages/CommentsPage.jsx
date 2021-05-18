@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CommentCard from "../Components/CommentCard";
+import Form from "../Components/Form";
 
 const CommentsPage = () => {
 
@@ -19,9 +20,14 @@ const CommentsPage = () => {
     }, [])
 
     return (
-        <div>
-            {comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
-        </div>
+        <>
+            <div>
+                {comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
+            </div>
+            <div>
+                <Form />
+            </div>
+        </>
     )
 }
 
