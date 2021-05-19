@@ -16,13 +16,15 @@ const CommentsPage = () => {
     }, [])
 
     return (
-        <div className="comments-page">
-            <div className="comments-list">
+        <div className="comments-page-container">
+            <div className="comments-page-content">
                 <h4>Comments</h4>
-                {comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
-            </div>
-            <div className="comments-form">
-                <Form setComments={setComments} />
+                <div className="comments-list">
+                    {comments && comments.length > 1 ? comments.map(comment => <CommentCard comment={comment} key={comment.id} />) : "Loading..."}
+                </div>
+                <div className="comments-form">
+                    <Form setComments={setComments} />
+                </div>
             </div>
         </div>
     )

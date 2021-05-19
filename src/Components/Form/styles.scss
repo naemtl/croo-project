@@ -1,4 +1,21 @@
-form {
-    display: flex;
-    flex-direction: column;
+.form-container {
+    form {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        input, textarea {
+            margin-top: 5px;
+        }
+        .button {
+            max-width: 150px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        @media (min-width: 375px) {
+            .button {
+                max-width: 200px;
+            }
+        }
+    }
 }

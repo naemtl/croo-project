@@ -3,13 +3,22 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 10px;
+  border-bottom: 1px dotted black;
+  padding: 5px 0;
 }
 
 .comment-card .comment-info {
   max-width: 100px;
   width: 100%;
   margin-right: 50px;
+}
+
+.comment-card .comment-info a {
+  color: #1C0F13;
+}
+
+.comment-card .comment-info a:hover {
+  color: #6E7E85;
 }
 
 .comment-card .comment-body {

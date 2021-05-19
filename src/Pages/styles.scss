@@ -1,11 +1,28 @@
-.comments-page {
+.comments-page-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-
-    .comments-list {
-        height: fit-content;
-        overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C0F13;
+    .comments-page-content {
+        max-width: 800px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        padding: 10px 0;
+        background-color: #BBBAC6;
+        
+        h4 {
+            padding: 0 10px ;
+        }
+        
+        .comments-list {
+            background-color: #e2e2e2;
+            height: fit-content;
+            overflow-y: auto;
+            padding: 10px;
+        }
     }
 }

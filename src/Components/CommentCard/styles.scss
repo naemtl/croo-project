@@ -1,12 +1,19 @@
 .comment-card {
     width: 100%;
     display: flex;
-    margin-bottom: 10px;
-
+    border-bottom: 1px dotted black;
+    padding: 5px 0;
     .comment-info {
         max-width: 100px;
         width: 100%;
         margin-right: 50px;
+
+        a {
+            color: #1C0F13;
+            &:hover {
+                color: #6E7E85;
+            }
+        }
     }
     .comment-body {
         max-width: 800px;
