@@ -1,25 +1,33 @@
 import React, { useState } from 'react'
 import moment from 'moment';
 
+import { createComment, getComments } from "../../services";
+
 import "./styles.css"
 
-const Form = () => {
+const Form = ({ setComments }) => {
 
     const [content, setContent] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
 
     const handleSubmit = e => {
-        e.preventDefault('/api/create', {
-            method: "POST",
-            body: JSON.stringify({
-                content,
-                datetime: moment(),
-                email,
-                name
-            })
+        e.preventDefault()
+
+        const data = {
+            content,
+            datetime: moment(),
+            email,
+            name
+        }
+
+        createComment(data).then(message => {
+            console.log(message)
+            setContent("")
+            setEmail("")
+            setName("")
+            getComments().then(data => setComments(data))
         })
-        fetch()
     }
 
     return (

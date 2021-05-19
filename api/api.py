@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+from datetime import datetime
+from flask import Flask, jsonify, json, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -27,9 +28,25 @@ def comment_serializer(comment):
     }
 
 
-@app.route("/api", methods=["GET"])
+@app.route("/comments", methods=["GET"])
 def index():
     return jsonify([*map(comment_serializer, Comment.query.all())])
+
+
+@app.route("/comments/create", methods=["POST"])
+def create():
+    request_data = json.loads(request.data)
+    comment = Comment(
+        content=request_data["content"],
+        datetime=request_data["datetime"],
+        email=request_data["email"],
+        name=request_data["name"],
+    )
+
+    db.session.add(comment)
+    db.session.commit()
+
+    return {"201": "Comment created successfully!"}
 
 
 if __name__ == "__main__":
