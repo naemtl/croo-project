@@ -11,4 +11,9 @@
           justify-content: space-between;
   height: 100vh;
 }
+
+.comments-page .comments-list {
+  height: 50vh;
+  overflow-y: scroll;
+}
 /*# sourceMappingURL=styles.css.map */
