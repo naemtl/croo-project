@@ -18,7 +18,11 @@ export function createComment(data) {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
-        }).then(response => response.json())
+        }).then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+        })
     } catch (error) {
         console.error(error)
     }
