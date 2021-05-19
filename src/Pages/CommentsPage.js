@@ -18,6 +18,7 @@ const CommentsPage = () => {
     return (
         <div className="comments-page">
             <div className="comments-list">
+                <h4>Comments</h4>
                 {comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
             </div>
             <div className="comments-form">

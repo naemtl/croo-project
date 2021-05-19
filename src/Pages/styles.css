@@ -13,7 +13,9 @@
 }
 
 .comments-page .comments-list {
-  height: 50vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow-y: scroll;
 }
 /*# sourceMappingURL=styles.css.map */
